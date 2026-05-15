@@ -16,7 +16,6 @@ from tokenizers import Tokenizer
 from huggingface_hub import hf_hub_download
 import gradio as gr
 
-# ── Kiến trúc khớp đúng với checkpoint ────────────────
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, max_len=512, dropout=0.1):
         super().__init__()
@@ -74,8 +73,7 @@ class TransformerNMT(nn.Module):
                                tgt_mask=tgt_mask,
                                tgt_key_padding_mask=tgt_pad,
                                memory_key_padding_mask=mem_pad)
-
-# ── Load từ HuggingFace ────────────────────────────────
+                               
 REPO   = "Mytho0610/NeuralMachineTranslation"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"⏳ Loading model từ {REPO} ...")
@@ -93,7 +91,6 @@ print("✅ Model load thành công!")
 tokenizer = Tokenizer.from_file(tok_path)
 PAD, BOS, EOS = 0, 2, 3
 
-# ── Hàm dịch Beam Search ──────────────────────────────
 def translate(text, beam_size=4, max_len=128):
     if not text.strip():
         return ""
