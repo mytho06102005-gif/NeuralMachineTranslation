@@ -2,15 +2,17 @@
 - Mô hình sau khi train xong được up lên Hugging face: https://huggingface.co/Mytho0610/NeuralMachineTranslation
 - Link tải dataset: https://huggingface.co/datasets/thainq107/iwslt2015-en-vi
 
-Sau khi huấn luyện, mô hình được lưu trữ trên nền tảng Hugging Face nhằm hỗ trợ tái sử dụng và triển khai mà không cần thực hiện huấn luyện lại. Người dùng có thể tải trực tiếp mô hình đã huấn luyện để dịch văn bản mới.
-
+Sau khi huấn luyện, mô hình được lưu trữ trên nền tảng Hugging Face nhằm hỗ trợ tái sử dụng và triển khai mà không cần thực hiện huấn luyện lại. Người dùng có thể tải trực tiếp mô hình đã huấn luyện để dịch văn bản mới. 
+Dưới đây là cách load mô hình đã được huấn luyện kèm với giao diện demo:
 Bước 1:
-''' !pip install -q tokenizers huggingface_hub gradio
+```python
+!pip install -q tokenizers huggingface_hub gradio
 print("✅ Done") 
-'''
+```
 
 Bước 2:
-''' import torch
+```python
+import torch
 import torch.nn as nn
 import math
 from tokenizers import Tokenizer
@@ -155,4 +157,5 @@ with gr.Blocks(title="EN→VI Translator", theme=gr.themes.Soft()) as demo:
         inputs=inp
     )
 
-demo.launch(share=True)  '''
+demo.launch(share=True)  
+```
