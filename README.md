@@ -6,7 +6,8 @@ Sau khi huấn luyện, mô hình được lưu trữ trên nền tảng Hugging
 
 Bước 1:
 ''' !pip install -q tokenizers huggingface_hub gradio
-print("✅ Done") '''
+print("✅ Done") 
+'''
 
 Bước 2:
 ''' import torch
